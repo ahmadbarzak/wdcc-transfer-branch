@@ -13,13 +13,23 @@ app.get("/gimmeJSON", function (req, res) {
 
     // The JSON object to return
     const person = {
-        name: "Walter White",
-        address: "308 Negra Arroyo Lane"
+        name: "Jo Mama",
+        address: "Jo Mama's House",
+        phone_number: "1234567890" 
     };
 
     // Send the JSON back to the client
     res.json(person);
 });
+
+app.get("/randomNumber", function (req, res) {
+    RND_NUM = Math.round(100*Math.random());
+    const json = {
+        num: RND_NUM
+    };
+    res.json(json);
+});
+
 
 // Start the webapp running
 app.listen(port, function () {

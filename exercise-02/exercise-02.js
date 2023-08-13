@@ -11,12 +11,20 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // When a GET request is made to "/" (i.e. the root path), send "Hello World!" back to the client.
 app.get("/", function (req, res) {
-    res.send("Hello World!");
+    res.send("Bing Chilling");
 });
 
-// Start the server running. Once the server is running, the given function will be called, which will
-// log a simple message to the server console. Any console.log() statements in your node.js code
-// can be seen in the terminal window used to run the server.
-app.listen(port, function () {
-    console.log(`Example app listening on port ${port}!`);
+// When a GET request is made to "/about", send "I am Cool!" back to the client.
+app.get("/about", function (req, res) {
+    res.send("I am Cool!");
 });
+
+
+// Listen for either "/" or "/about" requests on port 3000.
+// if "/" is requested, send "Hello World!" back to the client.
+// if "/about" is requested, send "I am Cool!" back to the client.
+app.listen(port, function () {
+    console.log(`Server listening on port ${port}`);
+}
+);
+
